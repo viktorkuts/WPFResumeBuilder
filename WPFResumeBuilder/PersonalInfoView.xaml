@@ -1,0 +1,52 @@
+﻿<Window x:Class="WPFResumeBuilder.PersonalInfoView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFResumeBuilder"
+        mc:Ignorable="d"
+        Title="PersonalInfoView" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="10">
+            <Label Content="Person Details Window" />
+            <StackPanel Orientation="Horizontal">
+                <Label Content="First Name: "/>
+                <TextBox x:Name="firstNameTextBlock" Text="{Binding FirstName}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Last Name: "/>
+                <TextBox x:Name="lastNameTextBlock" Text="{Binding LastName}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Address: "/>
+                <TextBox x:Name="addressTextBlock" Text="{Binding Address}"/>
+            </StackPanel>
+            <ScrollViewer>
+                <ItemsControl Name="PhoneListContainer">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0">Phone:</Label>
+                                <Label Grid.Column="1" Content="{Binding}"></Label>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="PhoneBTN"
+                        Click="PhoneBTN_Click"
+                        Content="Edit Phone Numbers"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="UpdateBTN"
+                        Click="UpdateBTN_Click"
+                        Content="Update"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
